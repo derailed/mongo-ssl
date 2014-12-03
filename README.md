@@ -1,11 +1,15 @@
-# Mongo-SSL
+# mongo-ssl
 
 ## Overview
 
+ MongoDb+SSL docker container.
+
+## Description
+
  The good folks at 10gen, in their infinite wisdom, decided to charge $
  for an SSL enabled mongodb instance vs offering it as a package...
- Hence we are left in building our own. This Docker image is a representation
- of building a ubuntu base mongodb image.
+ Hence we are left with building our own. This Docker image is a representation
+ of building a ubuntu based mongodb+ssl image.
 
 ## Usage
 
