@@ -18,7 +18,7 @@ RUN mkdir -p /var/downloads \
   && git checkout r2.6.5
 
 WORKDIR /var/downloads/mongo
-RUN scons install --64 --ssl -j8 --no-glibc-check --prefix=/usr/local \
+RUN scons core install --64 --ssl -j8 --no-glibc-check --prefix=/usr/local \
  && find /usr/local/bin -type f -not -name 'mongod' -delete \
  && rm -rf /var/downloads
 
