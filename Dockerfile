@@ -22,7 +22,6 @@ RUN cd /var/downloads/mongo \
  && scons mongod --64 --ssl -j8 --no-glibc-check --prefix=/usr/local \
  && cp /var/downloads/mongo/build/linux2/64/ssl/mongo/mongod /usr/local/bin \
  && rm -rf /var/downloads
- # && find /usr/local/bin -type f -not -name 'mongod' -delete
 
 RUN mkdir -p /data/db
 RUN mkdir -p /var/log/mongo.log
