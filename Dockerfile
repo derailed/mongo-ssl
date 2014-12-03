@@ -17,15 +17,16 @@ RUN mkdir -p /var/downloads \
   && cd /var/downloads/mongo \
   && git checkout r2.6.5
 
-WORKDIR /var/downloads/mongo
-RUN scons core install --64 --ssl -j8 --no-glibc-check --prefix=/usr/local \
- && find /usr/local/bin -type f -not -name 'mongod' -delete \
+RUN mkdir -p /usr/local/bin
+RUN cd /var/downloads/mongo \
+ && scons mongod --64 --ssl -j8 --no-glibc-check --prefix=/usr/local \
+ && cp /var/downloads/mongo/build/linux2/64/ssl/mongo/mongod /usr/local/bin \
  && rm -rf /var/downloads
+ # && find /usr/local/bin -type f -not -name 'mongod' -delete
 
 RUN mkdir -p /data/db
 RUN mkdir -p /var/log/mongo.log
 
-WORKDIR /
 EXPOSE 27017
 ENTRYPOINT ["/usr/local/bin/mongod", "--config", "/config/mongo.yaml"]
 

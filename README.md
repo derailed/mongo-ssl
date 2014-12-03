@@ -24,7 +24,8 @@ This container will fire up an instance of mongodb using a mongodb yaml config
 file named mongo.yaml. You will need to specify a volume on where to find the
 configuration file as well as other dependent files such as .pem file or others.
 Assuming you have a directory mongo_config in your current dir containing a yaml
-configuration...
+configuration.
+
 ```
 docker run --rm -p 27017:27017 -v `pwd`/mongo_config:/config derailed/mongo-ssl
 ```
