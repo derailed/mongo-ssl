@@ -19,7 +19,7 @@ RUN mkdir -p /var/downloads \
 
 RUN mkdir -p /usr/local/bin
 RUN cd /var/downloads/mongo \
- && scons mongod --64 --ssl -j8 --no-glibc-check --prefix=/usr/local \
+ && scons mongod --64 --ssl -j8 --no-glibc-check --prefix=/usr/local --disable-warnings-as-errors \
  && cp /var/downloads/mongo/build/linux2/64/ssl/mongo/mongod /usr/local/bin \
  && rm -rf /var/downloads
 
